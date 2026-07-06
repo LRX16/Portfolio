@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Temple archive mark">
+  <rect width="64" height="64" rx="14" fill="#08110f"/>
+  <path d="M32 7 52 22v5H12v-5L32 7Z" fill="#d7a84a"/>
+  <path d="M18 29h6v20h-6V29Zm11 0h6v20h-6V29Zm11 0h6v20h-6V29Z" fill="#e7d9b7"/>
+  <path d="M14 52h36v5H14v-5Z" fill="#54b487"/>
+  <circle cx="32" cy="21" r="4" fill="#08110f"/>
+</svg>
