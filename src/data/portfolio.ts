@@ -429,7 +429,7 @@ export const portfolio: PortfolioContent = {
   honors: [
     {
       // Honor, award, certification, scholarship, or recognition title.
-      title: "Honor / Award title",
+      title: "Silver Medal, California Informatics Competition - CALICO Fall 2025",
       // Issuing organization.
       issuer: "Organization name",
       // Year, month/year, or date range.
