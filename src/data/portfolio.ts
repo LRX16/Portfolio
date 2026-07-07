@@ -152,9 +152,9 @@ export const portfolio: PortfolioContent = {
   // SEO and browser preview text. Replace siteUrl after you deploy.
   metadata: {
     title: "Kenneth Lie",
-    description: "Your headline here. Short description goes here.",
+    description: "Competitive Programming & Machine Learning Enthusiast",
     siteUrl: "https://kennethlie.vercel.app",
-    keywords: ["Your Name", "Portfolio", "Developer", "Researcher"],
+    keywords: ["Kenneth Lie", "Portfolio", "Developer", "Researcher"],
     ogImage: "/images/temple-archive-hero.png"
   },
 
@@ -214,7 +214,7 @@ export const portfolio: PortfolioContent = {
     },
     sceneLabels: {
       navigation: "Valley Route",
-      heroGate: "Bamboo Valley Temple Template",
+      heroGate: "Bamboo Valley Temple",
       artifactHall: "Training Arsenal Hall",
       manuscriptVault: "Ancient Scroll Vault",
       disciplineCore: "Kung Fu Discipline Ring",
@@ -254,7 +254,7 @@ export const portfolio: PortfolioContent = {
     experience: {
       eyebrow: "Mountain Route",
       title: "Experience",
-      description: "Hehe."
+      description: "My Experiences"
     },
     contact: {
       eyebrow: "Lantern Signal",
@@ -584,17 +584,17 @@ export const portfolio: PortfolioContent = {
 
   // Contact details and social links. The API uses CONTACT_TO_EMAIL from .env for delivery.
   contact: {
-    email: "your.email@example.com",
+    email: "kenneth.lie8@gmail.com",
     formTitle: "Send a message to the archive",
     formDescription: "Use this form for collaboration, research, project, or application-related messages.",
     links: [
-      { label: "Email", href: "mailto:your.email@example.com" },
-      { label: "GitHub", href: "https://github.com/yourusername" }
+      { label: "Email", href: "mailto:kenneth.lie8@gmail.com" },
+      { label: "GitHub", href: "https://github.com/LRX16" }
     ],
     socials: [
-      { label: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
-      { label: "GitHub", href: "https://github.com/yourusername" },
-      { label: "Website", href: "https://your-domain.example" }
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/kennethlie16/" },
+      { label: "GitHub", href: "https://https://github.com/LRX16" },
+      { label: "Website", href: "https://kennethlie.vercel.app" }
     ]
   }
 };
