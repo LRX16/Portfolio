@@ -523,6 +523,34 @@ export const portfolio: PortfolioContent = {
       links: [{ label: "Related link", href: "https://your-link.example" }],
       logo: "Logo placeholder",
       icon: "Log"
+    },
+    {
+      // Role or title.
+      role: "Experience title",
+      // Company, school, club, lab, community, or organization.
+      organization: "Organization name",
+      // Employment or role type, such as Internship, Volunteer, Club role, Part-time, or Research.
+      roleType: "Role type",
+      // Location or Remote/Hybrid.
+      location: "Location",
+      // Start month/year or date.
+      startDate: "Start date",
+      // End date or Present.
+      endDate: "Present",
+      // Short overview of the role.
+      summary: "Short summary of the role goes here.",
+      // LinkedIn-style impact, responsibility, or contribution bullets.
+      bullets: [
+        "Responsibility or contribution placeholder.",
+        "Responsibility or contribution placeholder."
+      ],
+      // Skills, technologies, or tools used in the role.
+      skills: ["Skill / tool", "Skill / tool"],
+      // Optional role links such as organization page, project, certificate, or article.
+      links: [{ label: "Related link", href: "https://your-link.example" }],
+      // Optional logo/icon placeholder. Replace with a logo path or remove if unused.
+      logo: "Logo placeholder",
+      icon: "Role"
     }
   ],
 
