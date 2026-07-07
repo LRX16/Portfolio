@@ -429,19 +429,19 @@ export const portfolio: PortfolioContent = {
   honors: [
     {
       // Honor, award, certification, scholarship, or recognition title.
-      title: "Silver Medal, California Informatics Competition - CALICO Fall 2025",
+      title: "California Informatics Competition - CALICO Fall 2025",
       // Issuing organization.
-      issuer: "Organization name",
+      issuer: "University of California, Berkeley",
       // Year, month/year, or date range.
-      date: "Year",
+      date: "2025",
       // Category such as Award, Certification, Competition, Scholarship, or Recognition.
-      category: "Category / type",
+      category: "Competitive Programming",
       // Short explanation of why it matters.
       description: "Short description goes here.",
       // Optional placement, level, distinction, or rank.
-      rank: "Optional rank / level",
+      rank: "Silver Medal",
       // Optional credential, certificate, or proof link.
-      certificate: { label: "Credential", href: "https://your-certificate-link.example" },
+      certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
       // Skills or themes connected to this recognition.
       relatedSkills: ["Skill", "Skill"],
       // Optional media/icon placeholder. Replace with an image path or remove if unused.
