@@ -483,6 +483,18 @@ export const portfolio: PortfolioContent = {
       relatedSkills: ["Competitive Programming"],
       media: "Media placeholder",
       icon: ""
+    },
+    {
+      title: "Canadian Computing Competition 2025 - Senior Division",
+      issuer: "University of Waterloo",
+      date: "2025",
+      category: "Competitive Programming",
+      description: "Awarded Certificate of Distinction (Top 25%) in the Senior division of the Canadian Computing Competition (CCC)",
+      rank: "Distinction",
+      certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
+      relatedSkills: ["Competitive Programming"],
+      media: "Media placeholder",
+      icon: ""
     }
   ],
 
