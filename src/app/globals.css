@@ -93,7 +93,8 @@ h1,
 h2,
 h3,
 p {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .cinematic-temple-world {
@@ -710,7 +711,9 @@ h1 {
   color: #ffe5aa;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.2rem, 5vw, 4.8rem);
-  line-height: 1;
+  line-height: 1.1;
+  overflow: visible;
+  text-wrap: balance;
   text-shadow: 0 18px 44px var(--shadow), 0 0 28px rgba(255, 150, 56, 0.13);
 }
 
@@ -968,20 +971,18 @@ h1 {
 .manuscript-leaf h3,
 .discipline-pillar h3,
 .honor-token h3,
-.route-record h3,
-.ascent-step h3 {
+.route-record h3 {
   margin: 14px 0 12px;
   color: #ffe6ad;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.28rem, 2.2vw, 1.86rem);
-  line-height: 1.12;
+  line-height: 1.16;
 }
 
 .artifact-record p,
 .discipline-pillar p,
 .honor-token p,
 .route-record p,
-.ascent-step p,
 .sealed-letter p {
   color: rgba(255, 240, 195, 0.87);
   line-height: 1.68;
@@ -1187,8 +1188,7 @@ h1 {
 
 .technique-medallion,
 .honor-medallion,
-.route-pin,
-.step-number {
+.route-pin {
   display: grid;
   place-items: center;
   border: 1px solid rgba(238, 210, 160, 0.52);
@@ -1367,69 +1367,6 @@ h1 {
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-}
-
-.pilgrimage-ascent-scene {
-  min-height: 820px;
-}
-
-.ascent-heading {
-  margin: 0 auto 44px;
-  text-align: center;
-}
-
-.stone-ascent {
-  position: relative;
-  display: grid;
-  min-height: 600px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: end;
-  gap: 24px;
-  padding: 90px 12px 30px;
-}
-
-.stone-ascent::before {
-  position: absolute;
-  right: 8%;
-  left: 8%;
-  top: 50%;
-  height: 90px;
-  content: "";
-  transform: translateY(-50%);
-  background:
-    radial-gradient(ellipse at 8% 48%, rgba(238, 210, 160, 0.18) 0 54px, transparent 55px),
-    radial-gradient(ellipse at 34% 44%, rgba(238, 210, 160, 0.15) 0 66px, transparent 67px),
-    radial-gradient(ellipse at 64% 50%, rgba(97, 200, 146, 0.12) 0 58px, transparent 59px),
-    radial-gradient(ellipse at 92% 44%, rgba(238, 210, 160, 0.16) 0 62px, transparent 63px),
-    linear-gradient(90deg, transparent, rgba(238, 210, 160, 0.26), transparent);
-}
-
-.ascent-step {
-  position: relative;
-  z-index: 1;
-  min-height: 310px;
-  transform: translateY(calc((var(--i) - 1) * -42px));
-  border: 1px solid rgba(238, 210, 160, 0.28);
-  background:
-    radial-gradient(circle at 50% 0, rgba(238, 210, 160, 0.12), transparent 32%),
-    linear-gradient(180deg, rgba(97, 200, 146, 0.14), transparent 42%),
-    rgba(13, 29, 23, 0.95);
-  clip-path: polygon(50% 0, 100% 22%, 90% 100%, 10% 100%, 0 22%);
-  padding: 34px 28px 30px;
-  text-align: center;
-}
-
-.step-number {
-  width: 58px;
-  height: 58px;
-  margin: -62px auto 18px;
-  border-radius: 50%;
-}
-
-.ascent-step strong {
-  display: inline-block;
-  margin: 0 0 10px;
-  color: var(--gold);
 }
 
 .message-altar-scene {
@@ -1714,7 +1651,6 @@ h1 {
   .round-window,
   .vault-moon,
   .route-ink,
-  .stone-ascent::before,
   .shrine-roof {
     display: none;
   }
@@ -1737,8 +1673,7 @@ h1 {
 
   .scene-heading,
   .hall-heading,
-  .dojo-heading,
-  .ascent-heading {
+  .dojo-heading {
     margin-inline: 0;
     text-align: left;
   }
@@ -1756,14 +1691,12 @@ h1 {
 
   .artifact-hall-scene,
   .shrine-wall-scene,
-  .mountain-route-scene,
-  .pilgrimage-ascent-scene {
+  .mountain-route-scene {
     min-height: auto;
   }
 
   .artifact-stage,
-  .honor-wall,
-  .stone-ascent {
+  .honor-wall {
     min-height: auto;
     padding-top: 36px;
   }
@@ -1802,16 +1735,6 @@ h1 {
 
   .experience-heading {
     flex-direction: column;
-  }
-
-  .stone-ascent {
-    grid-template-columns: 1fr;
-    gap: 42px;
-  }
-
-  .ascent-step {
-    min-height: auto;
-    transform: none;
   }
 
   .message-altar-scene {
@@ -1894,8 +1817,7 @@ body {
 .artifact-object,
 .technique-medallion,
 .honor-medallion,
-.route-pin,
-.step-number {
+.route-pin {
   background:
     conic-gradient(from 45deg, rgba(255, 177, 74, 0.48), rgba(13, 96, 77, 0.9), rgba(255, 242, 200, 0.36), rgba(255, 124, 47, 0.44)),
     var(--jade-deep);
@@ -2037,7 +1959,6 @@ h1 {
 .discipline-pillar,
 .honor-token,
 .route-record,
-.ascent-step,
 .message-altar {
   border-color: rgba(255, 226, 156, 0.34);
   background:
@@ -2056,8 +1977,7 @@ h1 {
 .artifact-shrine:hover .artifact-record,
 .discipline-pillar:hover,
 .honor-token:hover,
-.route-stop:hover .route-record,
-.ascent-step:hover {
+.route-stop:hover .route-record {
   border-color: rgba(255, 226, 156, 0.72);
   box-shadow:
     0 34px 98px rgba(0, 0, 0, 0.46),
@@ -2371,7 +2291,6 @@ body::after {
 .discipline-pillar,
 .honor-token,
 .route-record,
-.ascent-step,
 .message-altar {
   border-width: 2px;
 }
@@ -2389,10 +2308,6 @@ body::after {
 
 .honor-token {
   clip-path: polygon(24px 0, calc(100% - 24px) 0, 100% 26px, 92% 100%, 8% 100%, 0 26px);
-}
-
-.ascent-step {
-  clip-path: polygon(50% 0, 100% 20%, 88% 100%, 12% 100%, 0 20%);
 }
 
 .sealed-form input,
@@ -3561,11 +3476,15 @@ body::after {
 }
 
 /* Background-stage pass: animated characters support the scene instead of covering content. */
-.lantern-nav,
 .scene,
 .bamboo-cloud-divider {
   position: relative;
   z-index: 2;
+}
+
+.lantern-nav {
+  position: fixed;
+  z-index: 60;
 }
 
 .spirit-dragon-layer,
@@ -5083,4 +5002,49 @@ body::after {
 .roadmap-panorama .media-placeholder,
 .roadmap-panorama .text-link {
   color: #6c310f;
+}
+
+/* Bug-fix safeguards for long labels and section titles. */
+.jade-seal-button,
+.text-link,
+.scene-label,
+.lantern-nav nav a {
+  line-height: 1.2;
+}
+
+.lantern-nav nav a {
+  white-space: nowrap;
+}
+
+.scene-heading h2,
+.roadmap-legend .scene-heading h2,
+.artifact-gallery-legend .scene-heading h2,
+.scroll-library-legend .scene-heading h2,
+.honor-hall-legend .scene-heading h2 {
+  line-height: 1.12;
+  overflow: visible;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.roadmap-legend,
+.artifact-gallery-legend,
+.scroll-library-legend,
+.honor-hall-legend {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .scene-heading h2,
+  .roadmap-legend .scene-heading h2,
+  .artifact-gallery-legend .scene-heading h2,
+  .scroll-library-legend .scene-heading h2,
+  .honor-hall-legend .scene-heading h2 {
+    font-size: clamp(1.9rem, 10vw, 3rem);
+  }
+
+  .lantern-nav nav a {
+    min-height: 34px;
+    align-items: center;
+  }
 }

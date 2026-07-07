@@ -6,8 +6,7 @@ import type {
   LinkItem,
   ProjectItem,
   ResearchItem,
-  SkillCategory,
-  TimelineItem
+  SkillCategory
 } from "@/data/portfolio";
 
 type SectionCopy = {
@@ -245,8 +244,8 @@ export function ScrollChamber({
           <div className="scroll-page">
             <p className="eyebrow">{recordLabel}</p>
             <h3>{about.title}</h3>
-            {about.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+            {about.paragraphs.map((paragraph, paragraphIndex) => (
+              <p key={`${paragraph}-${paragraphIndex}`}>{paragraph}</p>
             ))}
           </div>
           <dl className="seal-ledger">
@@ -309,22 +308,22 @@ export function RelicProjectDisplay({
                   ) : null}
                   {project.techStack.length > 0 ? (
                     <div className="inscription-chips">
-                      {project.techStack.map((tech) => (
-                        <span key={tech}>{tech}</span>
+                      {project.techStack.map((tech, techIndex) => (
+                        <span key={`${tech}-${techIndex}`}>{tech}</span>
                       ))}
                     </div>
                   ) : null}
                   {project.skillsUsed.length > 0 ? (
                     <div className="project-skill-list">
-                      {project.skillsUsed.map((skill) => (
-                        <span key={skill}>{skill}</span>
+                      {project.skillsUsed.map((skill, skillIndex) => (
+                        <span key={`${skill}-${skillIndex}`}>{skill}</span>
                       ))}
                     </div>
                   ) : null}
                   {project.links.length > 0 ? (
                     <div className="text-link-row">
-                      {project.links.map((link) => (
-                        <TextLink key={`${link.label}-${link.href}`} link={link} />
+                      {project.links.map((link, linkIndex) => (
+                        <TextLink key={`${link.label}-${link.href}-${linkIndex}`} link={link} />
                       ))}
                     </div>
                   ) : null}
@@ -378,8 +377,8 @@ export function ManuscriptResearchPanel({
                   <strong>{item.date}</strong>
                   <span className="wax-stamp" aria-hidden="true" />
                   <div className="seal-tags">
-                    {item.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
+                    {item.tags.map((tag, tagIndex) => (
+                      <span key={`${tag}-${tagIndex}`}>{tag}</span>
                     ))}
                   </div>
                 </div>
@@ -390,8 +389,8 @@ export function ManuscriptResearchPanel({
                   <p>{item.description}</p>
                   {item.relatedSkills.length > 0 ? (
                     <div className="research-skill-list">
-                      {item.relatedSkills.map((skill) => (
-                        <span key={skill}>{skill}</span>
+                      {item.relatedSkills.map((skill, skillIndex) => (
+                        <span key={`${skill}-${skillIndex}`}>{skill}</span>
                       ))}
                     </div>
                   ) : null}
@@ -445,8 +444,8 @@ export function DisciplineDiagram({
             </ul>
             {group.tools.length > 0 ? (
               <div className="inscription-chips">
-                {group.tools.map((tool) => (
-                  <span key={tool}>{tool}</span>
+                {group.tools.map((tool, toolIndex) => (
+                  <span key={`${tool}-${toolIndex}`}>{tool}</span>
                 ))}
               </div>
             ) : null}
@@ -509,8 +508,8 @@ export function ShrineHonorsWall({
                     {honor.rank ? <span className="rank-ribbon">{honor.rank}</span> : null}
                     {honor.relatedSkills.length > 0 ? (
                       <div className="honor-skill-list">
-                        {honor.relatedSkills.map((skill) => (
-                          <span key={skill}>{skill}</span>
+                        {honor.relatedSkills.map((skill, skillIndex) => (
+                          <span key={`${skill}-${skillIndex}`}>{skill}</span>
                         ))}
                       </div>
                     ) : null}
@@ -631,39 +630,6 @@ export function MountainRouteExperience({
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function PilgrimageJourney({
-  section,
-  items,
-  label
-}: {
-  section: SectionCopy;
-  items: TimelineItem[];
-  label: string;
-}) {
-  return (
-    <section id="timeline" className="scene pilgrimage-ascent-scene">
-      <SceneHeading section={section} label={label} className="ascent-heading" />
-      <div className="stone-ascent">
-        {items.map((item, index) => (
-          <article
-            className="ascent-step"
-            key={`${item.title}-${item.date}-${index}`}
-            style={itemStyle(index, items.length)}
-          >
-            <span className="step-number">{String(index + 1).padStart(2, "0")}</span>
-            <p className="eyebrow">
-              {item.icon} / {item.category}
-            </p>
-            <h3>{item.title}</h3>
-            <strong>{item.date}</strong>
-            <p>{item.description}</p>
-          </article>
-        ))}
       </div>
     </section>
   );

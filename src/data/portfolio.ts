@@ -71,14 +71,6 @@ export type ExperienceItem = {
   icon?: string;
 };
 
-export type TimelineItem = {
-  title: string;
-  date: string;
-  description: string;
-  category?: string;
-  icon?: string;
-};
-
 export type SectionKey =
   | "about"
   | "projects"
@@ -86,7 +78,6 @@ export type SectionKey =
   | "skills"
   | "honors"
   | "experience"
-  | "timeline"
   | "contact";
 
 export type PortfolioContent = {
@@ -123,7 +114,6 @@ export type PortfolioContent = {
       disciplineCore: string;
       honorShrine: string;
       expeditionMap: string;
-      pilgrimageAscent: string;
       messageAltar: string;
     };
   };
@@ -148,7 +138,6 @@ export type PortfolioContent = {
   skills: SkillCategory[];
   honors: HonorItem[];
   experience: ExperienceItem[];
-  timeline: TimelineItem[];
   contact: {
     email: string;
     formTitle: string;
@@ -170,10 +159,13 @@ export const portfolio: PortfolioContent = {
 
   // Top navigation links. The href values should match section ids in the page.
   navigation: [
-    { label: "Archive", href: "#about" },
-    { label: "Artifacts", href: "#projects" },
+    { label: "Home", href: "#top" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
     { label: "Research", href: "#research" },
+    { label: "Skills", href: "#skills" },
     { label: "Honors", href: "#honors" },
+    { label: "Experience", href: "#experience" },
     { label: "Contact", href: "#contact" }
   ],
 
@@ -217,7 +209,6 @@ export const portfolio: PortfolioContent = {
       skills: "Kung Fu Courtyard",
       honors: "Jade Trophy Shrine",
       experience: "Mountain Quest Map",
-      timeline: "Cloud Step Ascent",
       contact: "Messenger Lantern"
     },
     sceneLabels: {
@@ -228,7 +219,6 @@ export const portfolio: PortfolioContent = {
       disciplineCore: "Kung Fu Discipline Ring",
       honorShrine: "Jade Trophy Shrine",
       expeditionMap: "Mountain Quest Map",
-      pilgrimageAscent: "Cloud Step Ascent",
       messageAltar: "Lantern Courier Altar"
     }
   },
@@ -263,11 +253,6 @@ export const portfolio: PortfolioContent = {
     experience: {
       eyebrow: "Mountain Route",
       title: "Experience",
-      description: "Short description goes here."
-    },
-    timeline: {
-      eyebrow: "Cloud Ascent",
-      title: "Journey",
       description: "Short description goes here."
     },
     contact: {
@@ -508,31 +493,6 @@ export const portfolio: PortfolioContent = {
       links: [{ label: "Related link", href: "https://your-link.example" }],
       logo: "Logo placeholder",
       icon: "Log"
-    }
-  ],
-
-  // Journey entries are more story-like than formal experience.
-  timeline: [
-    {
-      title: "Timeline milestone",
-      date: "Year",
-      description: "Short description goes here.",
-      category: "Category",
-      icon: "Gate"
-    },
-    {
-      title: "Timeline milestone",
-      date: "Year",
-      description: "Short description goes here.",
-      category: "Category",
-      icon: "Path"
-    },
-    {
-      title: "Timeline milestone",
-      date: "Year",
-      description: "Short description goes here.",
-      category: "Category",
-      icon: "Peak"
     }
   ],
 

@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
   const to = process.env.CONTACT_TO_EMAIL;
   const from = process.env.CONTACT_FROM_EMAIL ?? "Portfolio Contact <onboarding@resend.dev>";
 
-  if (!apiKey || !to) {
+  if (!apiKey || !to || to === "your.email@example.com") {
     return NextResponse.json(
       {
         ok: true,
@@ -79,26 +79,35 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      from,
-      to,
-      reply_to: email,
-      subject: `Portfolio contact from ${name}`,
-      html: `
-        <h2>New portfolio message</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Message:</strong></p>
-        <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
-      `
-    })
-  });
+  let response: Response;
+
+  try {
+    response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        from,
+        to,
+        reply_to: email,
+        subject: `Portfolio contact from ${name}`,
+        html: `
+          <h2>New portfolio message</h2>
+          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+          <p><strong>Message:</strong></p>
+          <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
+        `
+      })
+    });
+  } catch {
+    return NextResponse.json(
+      { ok: false, message: "The message was valid, but email delivery could not be reached." },
+      { status: 502 }
+    );
+  }
 
   if (!response.ok) {
     return NextResponse.json(

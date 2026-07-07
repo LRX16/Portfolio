@@ -8,7 +8,6 @@ import {
   LanternNav,
   ManuscriptResearchPanel,
   MountainRouteExperience,
-  PilgrimageJourney,
   RelicProjectDisplay,
   ScrollChamber,
   SealedMessageContact,
@@ -34,18 +33,28 @@ export default function Home() {
 
     setFormState({ status: "sending", message: "Sending message..." });
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        message: formData.get("message"),
-        website: formData.get("website")
-      })
-    });
+    let response: Response;
+    let result: { ok?: boolean; message?: string };
 
-    const result = (await response.json()) as { ok?: boolean; message?: string };
+    try {
+      response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          website: formData.get("website")
+        })
+      });
+      result = (await response.json()) as { ok?: boolean; message?: string };
+    } catch {
+      setFormState({
+        status: "error",
+        message: "The message could not be sent right now. Please try again later."
+      });
+      return;
+    }
 
     if (!response.ok || !result.ok) {
       setFormState({
@@ -167,13 +176,6 @@ export default function Home() {
         section={portfolio.sections.experience}
         experience={portfolio.experience}
         label={portfolio.theme.sceneLabels.expeditionMap}
-      />
-
-      <BambooCloudDivider label={portfolio.theme.sectionDividers.timeline} />
-      <PilgrimageJourney
-        section={portfolio.sections.timeline}
-        items={portfolio.timeline}
-        label={portfolio.theme.sceneLabels.pilgrimageAscent}
       />
 
       <BambooCloudDivider label={portfolio.theme.sectionDividers.contact} />
