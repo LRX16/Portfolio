@@ -3078,7 +3078,9 @@ body::after {
   position: relative;
   z-index: 2;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
+  max-height: min(72vh, 690px);
+  scrollbar-gutter: stable both-edges;
   scrollbar-color: rgba(255, 208, 106, 0.72) rgba(8, 13, 10, 0.65);
   scrollbar-width: thin;
 }
@@ -3099,8 +3101,8 @@ body::after {
 .roadmap-panorama {
   position: relative;
   width: max(1180px, calc(var(--total) * 360px + 560px));
-  min-height: 520px;
-  overflow: hidden;
+  min-height: 690px;
+  overflow: visible;
   background:
     radial-gradient(circle at 82% 20%, rgba(255, 208, 106, 0.28), transparent 130px),
     linear-gradient(180deg, rgba(55, 77, 42, 0.82), rgba(22, 42, 23, 0.96));
@@ -3443,7 +3445,7 @@ body::after {
 
   .roadmap-panorama {
     width: max(960px, calc(var(--total) * 300px + 460px));
-    min-height: 500px;
+    min-height: 660px;
   }
 
   .roadmap-panorama .route-stop,
@@ -5002,6 +5004,78 @@ body::after {
 .roadmap-panorama .media-placeholder,
 .roadmap-panorama .text-link {
   color: #6c310f;
+}
+
+/* Honor tier colors: gold, silver, bronze, and default green. */
+.honor-tier-default .honor-plaque {
+  border-color: #69b88d;
+  background:
+    radial-gradient(circle at 50% 33%, rgba(255, 208, 106, 0.18), transparent 68px),
+    linear-gradient(180deg, rgba(29, 86, 66, 0.95), rgba(11, 48, 39, 0.98));
+}
+
+.honor-tier-gold .honor-plaque {
+  border-color: #d7a643;
+  background:
+    radial-gradient(circle at 50% 31%, rgba(255, 229, 149, 0.24), transparent 72px),
+    linear-gradient(180deg, rgba(115, 77, 22, 0.98), rgba(44, 31, 14, 0.98));
+}
+
+.honor-tier-silver .honor-plaque {
+  border-color: #c8d0cb;
+  background:
+    radial-gradient(circle at 50% 31%, rgba(248, 248, 230, 0.2), transparent 72px),
+    linear-gradient(180deg, rgba(91, 104, 100, 0.98), rgba(31, 42, 39, 0.98));
+}
+
+.honor-tier-bronze .honor-plaque {
+  border-color: #bd7a3a;
+  background:
+    radial-gradient(circle at 50% 31%, rgba(255, 175, 97, 0.2), transparent 72px),
+    linear-gradient(180deg, rgba(117, 61, 30, 0.98), rgba(43, 24, 15, 0.98));
+}
+
+.honor-tier-default .honor-medallion {
+  border-color: #2d7a5a;
+  background:
+    radial-gradient(circle at 35% 30%, #d7ffe6 0 8px, transparent 9px),
+    conic-gradient(from 20deg, #154331, #70d59b, #1d5c43, #ffd064, #154331);
+}
+
+.honor-tier-gold .honor-medallion {
+  border-color: #8b5517;
+  background:
+    radial-gradient(circle at 35% 30%, #fff5bd 0 8px, transparent 9px),
+    conic-gradient(from 20deg, #8a4e13, #ffd86a, #b46a1d, #fff0a8, #8a4e13);
+}
+
+.honor-tier-silver .honor-medallion {
+  border-color: #59645f;
+  background:
+    radial-gradient(circle at 35% 30%, #ffffff 0 8px, transparent 9px),
+    conic-gradient(from 20deg, #59645f, #f2f5ed, #9aa39e, #ffffff, #59645f);
+}
+
+.honor-tier-bronze .honor-medallion {
+  border-color: #74401e;
+  background:
+    radial-gradient(circle at 35% 30%, #ffe0b2 0 8px, transparent 9px),
+    conic-gradient(from 20deg, #70401d, #d88a42, #8a4c22, #ffc06f, #70401d);
+}
+
+.honor-tier-gold .rank-ribbon,
+.honor-tier-gold .text-link {
+  color: #ffeaa1;
+}
+
+.honor-tier-silver .rank-ribbon,
+.honor-tier-silver .text-link {
+  color: #f1f5eb;
+}
+
+.honor-tier-bronze .rank-ribbon,
+.honor-tier-bronze .text-link {
+  color: #ffc382;
 }
 
 /* Bug-fix safeguards for long labels and section titles. */

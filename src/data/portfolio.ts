@@ -49,6 +49,7 @@ export type HonorItem = {
   date: string;
   category: string;
   description: string;
+  tier?: "gold" | "silver" | "bronze" | "default";
   rank?: string;
   certificate?: LinkItem;
   relatedSkills: string[];
@@ -438,6 +439,8 @@ export const portfolio: PortfolioContent = {
       category: "Competitive Programming",
       // Short explanation of why it matters.
       description: "Awarded Silver Medal, ranking 43rd out of 1092 globally. Achieved Country Rank #1, placing first nationally.",
+      // Controls the honor plaque color: gold, silver, bronze, or default green.
+      tier: "silver",
       // Optional placement, level, distinction, or rank.
       rank: "Silver Medal",
       // Optional credential, certificate, or proof link.
@@ -454,6 +457,7 @@ export const portfolio: PortfolioContent = {
       date: "2025",
       category: "AI/ML",
       description: "Achieved Bronze Medal, ranking 10th out of 1,400 participants nationwide. Qualified to join Indonesia's IOAI 2026 National Training Camp",
+      tier: "bronze",
       rank: "Bronze Medal",
       certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
       relatedSkills: ["Artificial Intelligence", "Machine Learning"],
@@ -466,6 +470,7 @@ export const portfolio: PortfolioContent = {
       date: "2025",
       category: "Competitive Programming",
       description: "Honorable Mention in Informatics",
+      tier: "default",
       rank: "Honorabe Mention",
       certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
       relatedSkills: ["Competitive Programming"],
@@ -478,6 +483,7 @@ export const portfolio: PortfolioContent = {
       date: "2025",
       category: "Competitive Programming",
       description: "Placed 9th out of 171 contestants globally",
+      tier: "default",
       rank: "9th Place",
       certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
       relatedSkills: ["Competitive Programming"],
@@ -490,6 +496,7 @@ export const portfolio: PortfolioContent = {
       date: "2025",
       category: "Competitive Programming",
       description: "Awarded Certificate of Distinction (Top 25%) in the Senior division of the Canadian Computing Competition (CCC)",
+      tier: "default",
       rank: "Distinction",
       certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
       relatedSkills: ["Competitive Programming"],

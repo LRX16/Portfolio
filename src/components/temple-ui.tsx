@@ -37,6 +37,28 @@ function itemStyle(index: number, total: number): CSSProperties {
   } as CSSProperties;
 }
 
+function honorTier(honor: HonorItem): NonNullable<HonorItem["tier"]> {
+  if (honor.tier) {
+    return honor.tier;
+  }
+
+  const searchable = `${honor.rank ?? ""} ${honor.title} ${honor.category}`.toLowerCase();
+
+  if (searchable.includes("gold")) {
+    return "gold";
+  }
+
+  if (searchable.includes("silver")) {
+    return "silver";
+  }
+
+  if (searchable.includes("bronze")) {
+    return "bronze";
+  }
+
+  return "default";
+}
+
 export function TextLink({ link, className }: { link: LinkItem; className?: string }) {
   return (
     <a
@@ -489,14 +511,14 @@ export function ShrineHonorsWall({
             </div>
             {honors.map((honor, index) => (
               <article
-                className="honor-hanger"
+                className={classNames("honor-hanger", `honor-tier-${honorTier(honor)}`)}
                 key={`${honor.title}-${honor.date}-${index}`}
                 style={itemStyle(index, honors.length)}
               >
                 <span className="honor-cord" aria-hidden="true" />
                 <div className="honor-plaque">
                   <div className="honor-medallion">
-                    <span>{honor.icon ?? "Star"}</span>
+                    <span>{honor.icon || honorTier(honor)}</span>
                   </div>
                   <div className="honor-copy">
                     <p className="eyebrow">{honor.category}</p>
@@ -545,7 +567,7 @@ export function MountainRouteExperience({
           <SceneHeading section={section} label={label} className="route-heading" />
           <span>{label}</span>
         </aside>
-        <div className="roadmap-scroll" aria-label="Horizontally scrollable experience roadmap">
+        <div className="roadmap-scroll" aria-label="Horizontally and vertically scrollable experience roadmap">
           <div className="roadmap-panorama" style={itemStyle(0, experience.length)}>
             <div className="mountain-roadscape" aria-hidden="true">
               <span />
