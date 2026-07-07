@@ -449,16 +449,16 @@ export const portfolio: PortfolioContent = {
       icon: ""
     },
     {
-      title: "Honor / Award title",
-      issuer: "Organization name",
-      date: "Year",
-      category: "Category / type",
-      description: "Short description goes here.",
-      rank: "Optional rank / level",
+      title: "Indonesian National Olympiad (OSN) in Artificial Intelligence - EKKA",
+      issuer: "Indonesia Ministry of Education, Culture, Research and Technology",
+      date: "2025",
+      category: "AI/ML",
+      description: "Achieved Bronze Medal, ranking 10th out of 1,400 participants nationwide. Qualified to join Indonesia's IOAI 2026 National Training Camp",
+      rank: "Bronze Medal",
       certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
-      relatedSkills: ["Skill", "Skill"],
+      relatedSkills: ["Artificial Intelligence", "Machine Learning"],
       media: "Media placeholder",
-      icon: "Medal"
+      icon: ""
     }
   ],
 
