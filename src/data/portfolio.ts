@@ -11,20 +11,26 @@ export type ProjectItem = {
   title: string;
   shortDescription: string;
   details?: string;
+  projectUrl?: LinkItem;
   techStack: string[];
+  skillsUsed: string[];
   status: string;
-  github?: string;
-  demo?: string;
+  links: LinkItem[];
   image?: string;
   icon?: string;
 };
 
 export type ResearchItem = {
   title: string;
-  summary: string;
+  researchArea: string;
+  abstract: string;
+  description: string;
   tags: string[];
+  relatedSkills: string[];
   status: string;
-  link?: string;
+  date: string;
+  paperLink?: LinkItem;
+  icon?: string;
 };
 
 export type SkillCategory = {
@@ -32,6 +38,9 @@ export type SkillCategory = {
   skills: string[];
   icon?: string;
   level?: string;
+  tools: string[];
+  relatedProjects: string[];
+  description: string;
 };
 
 export type HonorItem = {
@@ -41,20 +50,24 @@ export type HonorItem = {
   category: string;
   description: string;
   rank?: string;
-  certificate?: string;
+  certificate?: LinkItem;
+  relatedSkills: string[];
+  media?: string;
   icon?: string;
 };
 
 export type ExperienceItem = {
   role: string;
   organization: string;
+  roleType: string;
   location: string;
   startDate: string;
   endDate: string;
-  description: string;
+  summary: string;
   bullets: string[];
   skills: string[];
-  link?: string;
+  links: LinkItem[];
+  logo?: string;
   icon?: string;
 };
 
@@ -65,6 +78,16 @@ export type TimelineItem = {
   category?: string;
   icon?: string;
 };
+
+export type SectionKey =
+  | "about"
+  | "projects"
+  | "research"
+  | "skills"
+  | "honors"
+  | "experience"
+  | "timeline"
+  | "contact";
 
 export type PortfolioContent = {
   metadata: {
@@ -79,19 +102,33 @@ export type PortfolioContent = {
     name: string;
     eyebrow: string;
     headline: string;
-    subtitle: string;
+    shortIntro: string;
+    location: string;
+    currentStatus: string;
+    socialLinks: LinkItem[];
     image: string;
     ctas: CallToAction[];
   };
+  theme: {
+    // Small visible labels used by decorative UI elements and zone dividers.
+    heroCoordinates: string[];
+    aboutRecordLabel: string;
+    contactChannelLabel: string;
+    sectionDividers: Record<SectionKey, string>;
+    sceneLabels: {
+      navigation: string;
+      heroGate: string;
+      artifactHall: string;
+      manuscriptVault: string;
+      disciplineCore: string;
+      honorShrine: string;
+      expeditionMap: string;
+      pilgrimageAscent: string;
+      messageAltar: string;
+    };
+  };
   sections: Record<
-    | "about"
-    | "projects"
-    | "research"
-    | "skills"
-    | "honors"
-    | "experience"
-    | "timeline"
-    | "contact",
+    SectionKey,
     {
       title: string;
       eyebrow: string;
@@ -142,56 +179,99 @@ export const portfolio: PortfolioContent = {
 
   // First screen content and call-to-action buttons.
   hero: {
+    // Your display name.
     name: "Your Name",
-    eyebrow: "Sacred Archive Portfolio",
+    // Small label above the main headline.
+    eyebrow: "Animated Temple Portfolio",
+    // Main professional headline.
     headline: "Your headline here",
-    subtitle: "Short description goes here. Introduce your focus, interests, or current path in one or two sentences.",
+    // One- or two-sentence intro for visitors, recruiters, and collaborators.
+    shortIntro: "Short intro goes here. Introduce your focus, interests, or current path in one or two sentences.",
+    // City/country, school location, or "Remote" placeholder.
+    location: "Your location",
+    // Current student status, role, or availability.
+    currentStatus: "Current role or status",
+    // Social links shown in the hero. Add, remove, or rename freely.
+    socialLinks: [
+      { label: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
+      { label: "GitHub", href: "https://github.com/yourusername" }
+    ],
+    // Optional image path for future hero media.
     image: "/images/temple-archive-hero.png",
+    // Primary hero buttons.
     ctas: [
       { label: "View artifacts", href: "#projects", variant: "primary" },
       { label: "Send a message", href: "#contact", variant: "secondary" }
     ]
   },
 
+  // Thematic labels for the visual journey. These are decorative but still editable.
+  theme: {
+    heroCoordinates: ["Valley Gate", "Training Courtyard", "Summit Scrolls"],
+    aboutRecordLabel: "Master Scroll Record",
+    contactChannelLabel: "Lantern Courier Message",
+    sectionDividers: {
+      about: "Master Scroll",
+      projects: "Training Arsenal",
+      research: "Scroll Vault",
+      skills: "Kung Fu Courtyard",
+      honors: "Jade Trophy Shrine",
+      experience: "Mountain Quest Map",
+      timeline: "Cloud Step Ascent",
+      contact: "Messenger Lantern"
+    },
+    sceneLabels: {
+      navigation: "Valley Route",
+      heroGate: "Bamboo Valley Temple Template",
+      artifactHall: "Training Arsenal Hall",
+      manuscriptVault: "Ancient Scroll Vault",
+      disciplineCore: "Kung Fu Discipline Ring",
+      honorShrine: "Jade Trophy Shrine",
+      expeditionMap: "Mountain Quest Map",
+      pilgrimageAscent: "Cloud Step Ascent",
+      messageAltar: "Lantern Courier Altar"
+    }
+  },
+
   // Section headings and short descriptions.
   sections: {
     about: {
-      eyebrow: "Inscription",
+      eyebrow: "Master Scroll",
       title: "About",
       description: "Short description goes here."
     },
     projects: {
-      eyebrow: "Relic Vault",
+      eyebrow: "Training Hall",
       title: "Projects",
       description: "Short description goes here."
     },
     research: {
-      eyebrow: "Hidden Scrolls",
+      eyebrow: "Wisdom Library",
       title: "Research / Ideas",
       description: "Short description goes here."
     },
     skills: {
-      eyebrow: "Constellation Map",
+      eyebrow: "Kung Fu Courtyard",
       title: "Skills",
       description: "Short description goes here."
     },
     honors: {
-      eyebrow: "Shrine of Honors",
+      eyebrow: "Jade Shrine",
       title: "Honors & Awards",
       description: "Short description goes here."
     },
     experience: {
-      eyebrow: "Expedition Log",
+      eyebrow: "Mountain Route",
       title: "Experience",
       description: "Short description goes here."
     },
     timeline: {
-      eyebrow: "Mountain Path",
+      eyebrow: "Cloud Ascent",
       title: "Journey",
       description: "Short description goes here."
     },
     contact: {
-      eyebrow: "Messenger Gate",
+      eyebrow: "Lantern Signal",
       title: "Contact",
       description: "Short description goes here."
     }
@@ -211,36 +291,62 @@ export const portfolio: PortfolioContent = {
     ]
   },
 
-  // Projects appear as artifact cards. Leave links blank or remove them if not ready.
+  // Projects appear in the artifact hall. Replace placeholders with real projects when ready.
   projects: [
     {
+      // Project name.
       title: "Project title",
-      shortDescription: "Project description",
-      details: "Optional longer project details go here.",
+      // Short one-line value proposition.
+      shortDescription: "Short project description goes here.",
+      // Optional medium-length context, impact, or implementation note.
+      details: "Optional project writeup summary, impact, or implementation details go here.",
+      // Main button for the project website or best destination.
+      projectUrl: { label: "Project website", href: "https://your-project-link.example" },
+      // Technologies, frameworks, or languages.
       techStack: ["Tech stack", "Tool name", "Framework"],
+      // Professional skills demonstrated by the project.
+      skillsUsed: ["Skill used", "Skill used"],
+      // Current state such as "In progress", "Published", or "Prototype".
       status: "Status label",
-      github: "https://github.com/yourusername/project",
-      demo: "https://your-demo-link.example",
+      // Supporting links. Use this for article/writeup, demo, GitHub, website, or Medium links.
+      links: [
+        { label: "Writeup", href: "https://your-article-link.example" },
+        { label: "Demo", href: "https://your-demo-link.example" },
+        { label: "GitHub", href: "https://github.com/yourusername/project" }
+      ],
+      // Optional image/media placeholder. Replace with an image path or remove if unused.
+      image: "Image placeholder",
+      // Short icon text displayed on the artifact object.
       icon: "I"
     },
     {
       title: "Project title",
-      shortDescription: "Project description",
+      shortDescription: "Short project description goes here.",
       details: "Optional longer project details go here.",
+      projectUrl: { label: "Project website", href: "https://your-project-link.example" },
       techStack: ["Tech stack", "Tool name", "Framework"],
+      skillsUsed: ["Skill used", "Skill used"],
       status: "Status label",
-      github: "https://github.com/yourusername/project",
-      demo: "https://your-demo-link.example",
+      links: [
+        { label: "Case study", href: "https://your-writeup-link.example" },
+        { label: "GitHub", href: "https://github.com/yourusername/project" }
+      ],
+      image: "Image placeholder",
       icon: "II"
     },
     {
       title: "Project title",
-      shortDescription: "Project description",
+      shortDescription: "Short project description goes here.",
       details: "Optional longer project details go here.",
+      projectUrl: { label: "Project website", href: "https://your-project-link.example" },
       techStack: ["Tech stack", "Tool name", "Framework"],
+      skillsUsed: ["Skill used", "Skill used"],
       status: "Status label",
-      github: "https://github.com/yourusername/project",
-      demo: "https://your-demo-link.example",
+      links: [
+        { label: "Website", href: "https://your-project-link.example" },
+        { label: "GitHub", href: "https://github.com/yourusername/project" }
+      ],
+      image: "Image placeholder",
       icon: "III"
     }
   ],
@@ -248,52 +354,98 @@ export const portfolio: PortfolioContent = {
   // Research or idea entries. Use this for manuscripts, experiments, notes, or proposals.
   research: [
     {
+      // Research or idea title.
       title: "Research / idea title",
-      summary: "Short summary goes here.",
+      // Field or discipline, such as AI ethics, data visualization, or education.
+      researchArea: "Research area",
+      // Short abstract for quick scanning.
+      abstract: "Short abstract goes here.",
+      // Slightly longer description, motivation, or contribution.
+      description: "Short description of the research question, method, or idea goes here.",
+      // Topics shown as compact marks on the scroll.
       tags: ["Topic", "Method", "Area"],
+      // Skills connected to the work.
+      relatedSkills: ["Skill", "Skill"],
+      // Status such as "Draft", "Published", "Exploring", or "Submitted".
       status: "Status label",
-      link: "https://your-link.example"
+      // Date, year, or semester.
+      date: "Year",
+      // Optional paper, article, repository, or research site link.
+      paperLink: { label: "Research site", href: "https://your-link.example" },
+      icon: "R"
     },
     {
       title: "Research / idea title",
-      summary: "Short summary goes here.",
+      researchArea: "Research area",
+      abstract: "Short abstract goes here.",
+      description: "Short description of the research question, method, or idea goes here.",
       tags: ["Topic", "Method", "Area"],
-      status: "Status label"
+      relatedSkills: ["Skill", "Skill"],
+      status: "Status label",
+      date: "Year",
+      paperLink: { label: "Paper / link", href: "https://your-link.example" },
+      icon: "I"
     }
   ],
 
-  // Skill categories. Level is a plain editable label, not a fixed score.
+  // Skill categories. Level is a plain editable proficiency label, not a fixed score.
   skills: [
     {
+      // Category name such as Frontend, Research, Data, Design, or Leadership.
       category: "Skill category",
+      // Core skills in this category.
       skills: ["Skill name", "Skill name", "Skill name"],
       icon: "A",
-      level: "Level label"
+      // Optional proficiency label such as Beginner, Intermediate, Advanced, or Currently learning.
+      level: "Proficiency label",
+      // Tools or platforms connected to this category.
+      tools: ["Tool name", "Tool name"],
+      // Project names connected to this category.
+      relatedProjects: ["Project title"],
+      // Short professional summary of how you use this category.
+      description: "Short description of how you use these skills."
     },
     {
       category: "Skill category",
       skills: ["Skill name", "Skill name", "Skill name"],
       icon: "B",
-      level: "Level label"
+      level: "Proficiency label",
+      tools: ["Tool name", "Tool name"],
+      relatedProjects: ["Project title"],
+      description: "Short description of how you use these skills."
     },
     {
       category: "Skill category",
       skills: ["Skill name", "Skill name", "Skill name"],
       icon: "C",
-      level: "Level label"
+      level: "Proficiency label",
+      tools: ["Tool name", "Tool name"],
+      relatedProjects: ["Project title"],
+      description: "Short description of how you use these skills."
     }
   ],
 
   // Honors and awards. Use only real entries when you customize this.
   honors: [
     {
+      // Honor, award, certification, scholarship, or recognition title.
       title: "Honor / Award title",
+      // Issuing organization.
       issuer: "Organization name",
+      // Year, month/year, or date range.
       date: "Year",
+      // Category such as Award, Certification, Competition, Scholarship, or Recognition.
       category: "Category / type",
+      // Short explanation of why it matters.
       description: "Short description goes here.",
+      // Optional placement, level, distinction, or rank.
       rank: "Optional rank / level",
-      certificate: "https://your-certificate-link.example",
+      // Optional credential, certificate, or proof link.
+      certificate: { label: "Credential", href: "https://your-certificate-link.example" },
+      // Skills or themes connected to this recognition.
+      relatedSkills: ["Skill", "Skill"],
+      // Optional media/icon placeholder. Replace with an image path or remove if unused.
+      media: "Media placeholder",
       icon: "Seal"
     },
     {
@@ -302,6 +454,10 @@ export const portfolio: PortfolioContent = {
       date: "Year",
       category: "Category / type",
       description: "Short description goes here.",
+      rank: "Optional rank / level",
+      certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
+      relatedSkills: ["Skill", "Skill"],
+      media: "Media placeholder",
       icon: "Medal"
     }
   ],
@@ -309,32 +465,48 @@ export const portfolio: PortfolioContent = {
   // Experience entries. Bullets should stay short for easy scanning.
   experience: [
     {
+      // Role or title.
       role: "Experience title",
+      // Company, school, club, lab, community, or organization.
       organization: "Organization name",
+      // Employment or role type, such as Internship, Volunteer, Club role, Part-time, or Research.
+      roleType: "Role type",
+      // Location or Remote/Hybrid.
       location: "Location",
+      // Start month/year or date.
       startDate: "Start date",
+      // End date or Present.
       endDate: "Present",
-      description: "Short description goes here.",
+      // Short overview of the role.
+      summary: "Short summary of the role goes here.",
+      // LinkedIn-style impact, responsibility, or contribution bullets.
       bullets: [
         "Responsibility or contribution placeholder.",
         "Responsibility or contribution placeholder."
       ],
+      // Skills, technologies, or tools used in the role.
       skills: ["Skill / tool", "Skill / tool"],
-      link: "https://your-link.example",
+      // Optional role links such as organization page, project, certificate, or article.
+      links: [{ label: "Related link", href: "https://your-link.example" }],
+      // Optional logo/icon placeholder. Replace with a logo path or remove if unused.
+      logo: "Logo placeholder",
       icon: "Role"
     },
     {
       role: "Experience title",
       organization: "Organization name",
+      roleType: "Role type",
       location: "Location",
       startDate: "Start date",
       endDate: "End date",
-      description: "Short description goes here.",
+      summary: "Short summary of the role goes here.",
       bullets: [
         "Responsibility or contribution placeholder.",
         "Responsibility or contribution placeholder."
       ],
       skills: ["Skill / tool", "Skill / tool"],
+      links: [{ label: "Related link", href: "https://your-link.example" }],
+      logo: "Logo placeholder",
       icon: "Log"
     }
   ],
