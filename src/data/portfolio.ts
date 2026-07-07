@@ -437,7 +437,7 @@ export const portfolio: PortfolioContent = {
       // Category such as Award, Certification, Competition, Scholarship, or Recognition.
       category: "Competitive Programming",
       // Short explanation of why it matters.
-      description: "Short description goes here.",
+      description: "Awarded Silver Medal, ranking 43rd out of 1092 globally. Achieved Country Rank #1, placing first nationally.",
       // Optional placement, level, distinction, or rank.
       rank: "Silver Medal",
       // Optional credential, certificate, or proof link.
