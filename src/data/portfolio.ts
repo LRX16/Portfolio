@@ -459,6 +459,18 @@ export const portfolio: PortfolioContent = {
       relatedSkills: ["Artificial Intelligence", "Machine Learning"],
       media: "Media placeholder",
       icon: ""
+    },
+    {
+      title: "XXXII International Tuymaada Olympiad in mathematics, physics, chemistry and informatics",
+      issuer: "Ministry of Education and Science of the Republic of Sakha (Yakutia)",
+      date: "2025",
+      category: "Competitive Programming",
+      description: "Honorable Mention in Informatics",
+      rank: "Honorabe Mention",
+      certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
+      relatedSkills: ["Competitive Programming"],
+      media: "Media placeholder",
+      icon: ""
     }
   ],
 
