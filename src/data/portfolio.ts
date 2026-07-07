@@ -151,7 +151,7 @@ export type PortfolioContent = {
 export const portfolio: PortfolioContent = {
   // SEO and browser preview text. Replace siteUrl after you deploy.
   metadata: {
-    title: "Your Name | Portfolio",
+    title: "Kenneth Lie",
     description: "Your headline here. Short description goes here.",
     siteUrl: "https://kennethlie.vercel.app",
     keywords: ["Your Name", "Portfolio", "Developer", "Researcher"],
