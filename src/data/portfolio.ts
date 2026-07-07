@@ -161,7 +161,7 @@ export type PortfolioContent = {
 export const portfolio: PortfolioContent = {
   // SEO and browser preview text. Replace siteUrl after you deploy.
   metadata: {
-    title: "Kenneth Lie",
+    title: "Your Name | Portfolio",
     description: "Your headline here. Short description goes here.",
     siteUrl: "https://kennethlie.vercel.app",
     keywords: ["Your Name", "Portfolio", "Developer", "Researcher"],
@@ -180,21 +180,21 @@ export const portfolio: PortfolioContent = {
   // First screen content and call-to-action buttons.
   hero: {
     // Your display name.
-    name: "Your Name",
+    name: "Kenneth Lie",
     // Small label above the main headline.
-    eyebrow: "Animated Temple Portfolio",
+    eyebrow: "李荣兴",
     // Main professional headline.
-    headline: "Your headline here",
+    headline: "Kenneth Lie",
     // One- or two-sentence intro for visitors, recruiters, and collaborators.
-    shortIntro: "Short intro goes here. Introduce your focus, interests, or current path in one or two sentences.",
+    shortIntro: "Competitive Programming & Machine Learning Enthusiast",
     // City/country, school location, or "Remote" placeholder.
-    location: "Your location",
+    location: "Jakarta, Indonesia",
     // Current student status, role, or availability.
-    currentStatus: "Current role or status",
+    currentStatus: "Student",
     // Social links shown in the hero. Add, remove, or rename freely.
     socialLinks: [
-      { label: "LinkedIn", href: "https://linkedin.com/in/yourusername" },
-      { label: "GitHub", href: "https://github.com/yourusername" }
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/kennethlie16/" },
+      { label: "GitHub", href: "https://github.com/LRX16" }
     ],
     // Optional image path for future hero media.
     image: "/images/temple-archive-hero.png",
@@ -238,32 +238,32 @@ export const portfolio: PortfolioContent = {
     about: {
       eyebrow: "Master Scroll",
       title: "About",
-      description: "Short description goes here."
+      description: "Competitive Programming and Machine Learning Enthusiast"
     },
     projects: {
       eyebrow: "Training Hall",
       title: "Projects",
-      description: "Short description goes here."
+      description: "Projects I made"
     },
     research: {
       eyebrow: "Wisdom Library",
-      title: "Research / Ideas",
-      description: "Short description goes here."
+      title: "Researches",
+      description: "Ideas I got"
     },
     skills: {
       eyebrow: "Kung Fu Courtyard",
       title: "Skills",
-      description: "Short description goes here."
+      description: "Skills I have"
     },
     honors: {
       eyebrow: "Jade Shrine",
       title: "Honors & Awards",
-      description: "Short description goes here."
+      description: "My Achievements"
     },
     experience: {
       eyebrow: "Mountain Route",
       title: "Experience",
-      description: "Short description goes here."
+      description: "Hehe."
     },
     timeline: {
       eyebrow: "Cloud Ascent",
@@ -273,7 +273,7 @@ export const portfolio: PortfolioContent = {
     contact: {
       eyebrow: "Lantern Signal",
       title: "Contact",
-      description: "Short description goes here."
+      description: "Message Me!"
     }
   },
 
@@ -285,9 +285,9 @@ export const portfolio: PortfolioContent = {
       "Short description goes here. Add your interests, learning direction, research themes, or portfolio goals."
     ],
     facts: [
-      { label: "Focus", value: "Your focus area" },
-      { label: "Location", value: "Your location" },
-      { label: "Currently", value: "Your current role or status" }
+      { label: "Focus", value: "Machine Learning and Deep Learning" },
+      { label: "Location", value: "Jakarta, Indonesia" },
+      { label: "Currently", value: "Student" }
     ]
   },
 
