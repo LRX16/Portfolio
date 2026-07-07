@@ -593,7 +593,7 @@ export const portfolio: PortfolioContent = {
     ],
     socials: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/kennethlie16/" },
-      { label: "GitHub", href: "https://https://github.com/LRX16" },
+      { label: "GitHub", href: "https://github.com/LRX16" },
       { label: "Website", href: "https://kennethlie.vercel.app" }
     ]
   }
