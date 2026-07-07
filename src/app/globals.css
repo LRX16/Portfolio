@@ -5006,7 +5006,7 @@ body::after {
   color: #6c310f;
 }
 
-/* Honor tier colors: gold, silver, bronze, and default green. */
+/* Honor tier colors: gold, silver, bronze, blue, and default green. */
 .honor-tier-default .honor-plaque {
   border-color: #69b88d;
   background:
@@ -5033,6 +5033,13 @@ body::after {
   background:
     radial-gradient(circle at 50% 31%, rgba(255, 175, 97, 0.2), transparent 72px),
     linear-gradient(180deg, rgba(117, 61, 30, 0.98), rgba(43, 24, 15, 0.98));
+}
+
+.honor-tier-blue .honor-plaque {
+  border-color: #6eb6ff;
+  background:
+    radial-gradient(circle at 50% 31%, rgba(143, 205, 255, 0.22), transparent 72px),
+    linear-gradient(180deg, rgba(28, 76, 125, 0.98), rgba(14, 35, 66, 0.98));
 }
 
 .honor-tier-default .honor-medallion {
@@ -5063,6 +5070,13 @@ body::after {
     conic-gradient(from 20deg, #70401d, #d88a42, #8a4c22, #ffc06f, #70401d);
 }
 
+.honor-tier-blue .honor-medallion {
+  border-color: #224f86;
+  background:
+    radial-gradient(circle at 35% 30%, #d7efff 0 8px, transparent 9px),
+    conic-gradient(from 20deg, #1d4d83, #78c4ff, #2f6da8, #d2edff, #1d4d83);
+}
+
 .honor-tier-gold .rank-ribbon,
 .honor-tier-gold .text-link {
   color: #ffeaa1;
@@ -5076,6 +5090,11 @@ body::after {
 .honor-tier-bronze .rank-ribbon,
 .honor-tier-bronze .text-link {
   color: #ffc382;
+}
+
+.honor-tier-blue .rank-ribbon,
+.honor-tier-blue .text-link {
+  color: #c9e8ff;
 }
 
 /* Bug-fix safeguards for long labels and section titles. */

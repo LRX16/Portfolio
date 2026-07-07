@@ -44,6 +44,10 @@ function honorTier(honor: HonorItem): NonNullable<HonorItem["tier"]> {
 
   const searchable = `${honor.rank ?? ""} ${honor.title} ${honor.category}`.toLowerCase();
 
+  if (searchable.includes("honorable mention")) {
+    return "blue";
+  }
+
   if (searchable.includes("gold")) {
     return "gold";
   }

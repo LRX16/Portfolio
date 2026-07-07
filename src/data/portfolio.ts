@@ -49,7 +49,7 @@ export type HonorItem = {
   date: string;
   category: string;
   description: string;
-  tier?: "gold" | "silver" | "bronze" | "default";
+  tier?: "gold" | "silver" | "bronze" | "blue" | "default";
   rank?: string;
   certificate?: LinkItem;
   relatedSkills: string[];
@@ -470,8 +470,8 @@ export const portfolio: PortfolioContent = {
       date: "2025",
       category: "Competitive Programming",
       description: "Honorable Mention in Informatics",
-      tier: "default",
-      rank: "Honorabe Mention",
+      tier: "blue",
+      rank: "Honorable Mention",
       certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
       relatedSkills: ["Competitive Programming"],
       media: "Media placeholder",
