@@ -471,6 +471,18 @@ export const portfolio: PortfolioContent = {
       relatedSkills: ["Competitive Programming"],
       media: "Media placeholder",
       icon: ""
+    },
+    {
+      title: "CodeSprint LA 2025",
+      issuer: "University of California, Los Angeles",
+      date: "2025",
+      category: "Competitive Programming",
+      description: "Placed 9th out of 171 contestants globally",
+      rank: "9th Place",
+      certificate: { label: "Certificate", href: "https://your-certificate-link.example" },
+      relatedSkills: ["Competitive Programming"],
+      media: "Media placeholder",
+      icon: ""
     }
   ],
 
