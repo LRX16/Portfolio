@@ -348,6 +348,21 @@ export const portfolio: PortfolioContent = {
       ],
       image: "Image placeholder",
       icon: "III"
+    },
+    {
+      title: "Project title",
+      shortDescription: "Short project description goes here.",
+      details: "Optional longer project details go here.",
+      projectUrl: { label: "Project website", href: "https://your-project-link.example" },
+      techStack: ["Tech stack", "Tool name", "Framework"],
+      skillsUsed: ["Skill used", "Skill used"],
+      status: "Status label",
+      links: [
+        { label: "Website", href: "https://your-project-link.example" },
+        { label: "GitHub", href: "https://github.com/yourusername/project" }
+      ],
+      image: "Image placeholder",
+      icon: "IV"
     }
   ],
 
